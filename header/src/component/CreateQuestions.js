@@ -44,7 +44,8 @@ class CreateQuestions extends Component {
 
   render() {
     if (this.state.redirectToNewPage === true) {
-         return <DisplayQuestions data={this.state.learnerID}/>
+         //return <DisplayQuestions data='{"active":{"question":"Active","options":"8","QuestionType":"radionbtn"},"waiting":{"question":"Waiting","options":"1"},"manual":{"question":"Manual","options":"3","QuestionType":"chkbox"}}'/>
+         return <DisplayQuestions data='{"active":{"question":"Active","questionid":"1","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"chkbox"},"active1":{"question":"Active","questionid":"2","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"radio"},"active2":{"question":"Active","questionid":"2","options":[],"QuestionType":"text"}}'/>
     }
 
     var subjects = [
@@ -113,7 +114,6 @@ class CreateQuestions extends Component {
 
     <div className="row">
     <div className="form-group">
-    {/* <div className="row"> */}
       <div className="col-md-2">
         <label htmlFor="test" className="col-xs-offset-1">Number of Questions:</label>
       </div>

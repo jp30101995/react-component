@@ -13,7 +13,7 @@ class App extends Component {
          <hr/>
        </div>
        <CreateQuestions />
-       </header>;
+       </header>
     </div>
     );
   }
