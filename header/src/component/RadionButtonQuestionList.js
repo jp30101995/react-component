@@ -16,7 +16,6 @@ class RadionButtonQuestionList extends Component {
     }
 
     handleInputChange(event) {
-      debugger;
         const target = event.target;
         this.setState({
           checkedRadioName: target.value

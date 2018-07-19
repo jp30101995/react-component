@@ -15,13 +15,23 @@ class DisplayQuestions extends Component {
 
   handleSubmit(event) {
     debugger;
-    alert(this.state.learnerID + ' ID:' + this.state.questionid)
+    var alertmsg=''
+    this.state.map( (statevalue) => {
+      alertmsg += statevalue.questionid + ' answer: ' + statevalue.answer + '\n'
+    })
+
+    alert(alertmsg)
     event.preventDefault();
  }
 
  onRadioUpdate = (val,questionid) => {
-  this.state.splice(questionid, 1);
-  var arr = []
+  this.state.map( (statevalue,idx) => {
+    if(statevalue.questionid === questionid)
+    {
+      this.state.splice(idx,1);
+    }
+  });
+  var arr = []  
   arr.push(val)
   this.state.push({answer: arr,questionid:questionid});
 };
@@ -29,31 +39,37 @@ class DisplayQuestions extends Component {
 onCheckBoxUpdate = (val,questionid,isChecked) => {
     var arr = []
     arr.push(val)
-  //this.state.push({answer: val,questionid:questionid});
   var isDone=false;
   var isQuestionFound=false;
+  var tempArr=  []
   this.state.map( (statevalue) => {
-  if(statevalue.questionid === questionid && statevalue.answer === val && !isChecked)
+  if(statevalue.questionid === questionid)
   {
-    debugger;
-    this.state.splice(questionid,[1,0].concat(val));
-    isDone=true;
-    isQuestionFound=true;
-  }
-  else if(statevalue.questionid === questionid)
-  {
+    statevalue.answer.map((ans,idx)=>{
+      if(ans === val && !isChecked)
+      {
+        statevalue.answer.splice(idx,1);
+        isDone=true;
+      }
+    })
+    tempArr.splice(val);
     isQuestionFound=true;
   }
 
   if(!isDone && isQuestionFound){
-    debugger;
-    statevalue.answer.push(val);
+    tempArr.push(val)
   }
-
-  })
-
+});
+  
   if(!isDone && !isQuestionFound){
     this.state.push({answer: arr,questionid:questionid});
+  }else if(tempArr.length > 0){
+    this.state.map( (statevalue) => {
+      if(statevalue.questionid === questionid)
+      {
+        statevalue.answer.push(val);
+      }
+    })
   }
 
  
