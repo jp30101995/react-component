@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Input } from 'reactstrap';
 
 class TextAreaQuestionList extends Component {
     
@@ -30,9 +31,10 @@ class TextAreaQuestionList extends Component {
         return (
             <div className="row">
             <div className="col-lg-10">
-            <textarea>
-                Hello there, this is some text in a text area
-            </textarea>
+            <Input type="textarea" name="text" id="exampleText" />
+                {/* <textarea>
+                    Hello there, this is some text in a text area
+                </textarea> */}
             </div>
           </div>
           );

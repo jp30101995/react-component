@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class CheckboxQuestionList extends Component {
     
     constructor(props) {
         
         super(props);
-        this.state = {isGoing: true};
+        this.questionid=props.questionid
 
         this.items = props.value;
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(event) {
-        
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-    
-        this.setState({
-          [name]: value
-        });
+      debugger;
+      const target = event.target;
+      this.props.onCheckBoxUpdate(target.value,this.questionid,event.target.checked);
       }
 
 
     render() {
         return (
         this.items.map((user, idx) => (
-            <div className="row">
-              <div className="col-sm-1">
-              <input type="checkbox"value={user.V}/>
-              </div>
-              <div className="col-sm-10">
-              <label htmlFor={user.V} value={user.V}> Female</label>
-              </div>
-            </div>
+            <FormGroup check>
+            <Label check>
+              <Input type="checkbox" value={user} onChange={this.handleInputChange} />{' '}
+              {user}
+            </Label>
+          </FormGroup>
           )));
     }
 

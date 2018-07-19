@@ -45,9 +45,9 @@ class CreateQuestions extends Component {
   render() {
     if (this.state.redirectToNewPage === true) {
          //return <DisplayQuestions data='{"active":{"question":"Active","options":"8","QuestionType":"radionbtn"},"waiting":{"question":"Waiting","options":"1"},"manual":{"question":"Manual","options":"3","QuestionType":"chkbox"}}'/>
-         return <DisplayQuestions data='{"active":{"question":"Active","questionid":"1","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"chkbox"},"active1":{"question":"Active","questionid":"2","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"radio"},"active2":{"question":"Active","questionid":"2","options":[],"QuestionType":"text"}}'/>
+         //return <DisplayQuestions data='{"active":{"question":"Active","questionid":"1","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"chkbox"},"active1":{"question":"Active","questionid":"2","options":[{"V": "12"},{"V": "13"},{"V": "14"}],"QuestionType":"radio"},"active2":{"question":"Active","questionid":"2","options":[],"QuestionType":"text"}}'/>
+         return <DisplayQuestions data='[{"_id": "5b4db0271247023544f06377","options": ["option1","option2"],"question": "question1","type": "chkbox","difficulty": 1,"subject": "Maths","__v": 0},{"_id": "5b4db0271247023544f06378","options": ["option1","option2","option3"],"question": "question1","type": "radio","difficulty": 1,"subject": "Maths","__v": 0}]'/>
     }
-
     var subjects = [
         { name: 'Web Development', id: 1 },
         { name: 'Design', id: 2 },

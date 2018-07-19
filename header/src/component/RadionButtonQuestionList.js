@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 class RadionButtonQuestionList extends Component {
     
     constructor(props) {
-        debugger;
         super(props);
         this.state = {isGoing: true};
         this.questionid=props.questionid
@@ -15,28 +16,25 @@ class RadionButtonQuestionList extends Component {
     }
 
     handleInputChange(event) {
-        debugger;
+      debugger;
         const target = event.target;
-        const value = target.value;
-        const name = target.name;
-    
         this.setState({
-          checkedRadioName: value
+          checkedRadioName: target.value
         });
+
+        this.props.onRadioUpdate(target.value,this.questionid);
       }
 
 
     render() {
         return (
         this.items.map((user, idx) => (
-            <div className="row">
-              <div className="col-sm-1">
-              <input type="radio"value={user.V} onChange={this.handleInputChange} checked={this.state.checkedRadioName === user.V}/>
-              </div>
-              <div className="col-sm-4">
-              <label htmlFor={user.V} value={user.V}> Female</label>
-              </div>
-            </div>
+            <FormGroup check>
+            <Label check>
+              <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.checkedRadioName === user} />{' '}
+                {user}
+            </Label>
+          </FormGroup>
           )));
     }
 
