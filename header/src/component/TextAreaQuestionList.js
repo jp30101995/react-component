@@ -4,7 +4,7 @@ import { Input } from 'reactstrap';
 class TextAreaQuestionList extends Component {
     
     constructor(props) {
-        debugger;
+       
         super(props);
         this.state = {isGoing: true};
         this.questionid=props.questionid
@@ -16,7 +16,7 @@ class TextAreaQuestionList extends Component {
     }
 
     handleInputChange(event) {
-        debugger;
+      
         const target = event.target;
         const value = target.value;
         const name = target.name;

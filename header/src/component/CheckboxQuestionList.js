@@ -13,7 +13,7 @@ class CheckboxQuestionList extends Component {
     }
 
     handleInputChange(event) {
-      debugger;
+      
       const target = event.target;
       this.props.onCheckBoxUpdate(target.value,this.questionid,event.target.checked);
       }
