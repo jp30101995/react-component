@@ -10,8 +10,10 @@ class Report extends Component {
     return (
       <div>
         <ReactSpeedometer
-          value={333}
+          value={70}
           needleTransitionDuration={4000}
+          minValue={0}
+          maxValue={100}
           needleTransition="easeElastic"
           currentValueText="Current Value: ${value}"
         />
