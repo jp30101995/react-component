@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
 class RadionButtonQuestionList extends Component {
-    
     constructor(props) {
         super(props);
         this.state = {isGoing: true};
         this.questionid=props.questionid
-
         this.state.checkedRadioName = '';
-
         this.items = props.value;
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -23,8 +18,6 @@ class RadionButtonQuestionList extends Component {
 
         this.props.onRadioUpdate(target.value,this.questionid);
       }
-
-
     render() {
         return (
         this.items.map((user, idx) => (
@@ -36,6 +29,5 @@ class RadionButtonQuestionList extends Component {
           </FormGroup>
           )));
     }
-
 }
 export default RadionButtonQuestionList;

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-
+import CheckboxQuestionList from "./CheckboxQuestionList";
+import RadioButtonQuestionList from "./RadionButtonQuestionList";
+import TextAreaQuestionList from "./TextAreaQuestionList";
 class PostQuestions extends Component {
   constructor(props) {
-    debugger;
     super(props);
     this.quearr = props.quearr;
+    this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
   }
 
   componentWillMount() {
@@ -18,7 +24,6 @@ class PostQuestions extends Component {
         answer: statevalue.answer
       });
     });
-    debugger;
     fetch(url,{
         method: "POST",
         body: JSON.stringify(jsonData),
@@ -29,16 +34,89 @@ class PostQuestions extends Component {
       }).then(res => res.json())
       .then(
         result => {
-          debugger;
-        },
-        error => {
-          debugger;
-        }
+            this.setState({
+              isLoaded: true,
+              items: result.Result
+            });
+          },
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
       );
   }
-
   render() {
-    return <div>Error: Done</div>;
+    return (
+        this.state.items.map(innerArray => {
+          if (innerArray.questiontype == "chkbox") {
+            return (
+              <div>
+                <div
+                  className="col-md-12 row"
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    backgroundColor: "lightgray"
+                  }}
+                >
+                  {innerArray.question}
+                </div>
+                <CheckboxQuestionList
+                  label={innerArray.question}
+                  value={innerArray.options}
+                  questionid={innerArray._id}
+                  onCheckBoxUpdate={this.onCheckBoxUpdate}
+                />
+              </div>
+            );
+          } else if (innerArray.questiontype == "radio") {
+            {
+              return (
+                <div>
+                  <div
+                    className="col-md-12 row"
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "bold",
+                      backgroundColor: "lightgray"
+                    }}
+                  >
+                    {innerArray.question}
+                  </div>
+                  <RadioButtonQuestionList
+                    label={innerArray.question}
+                    value={innerArray.options}
+                    questionid={innerArray._id}
+                    onRadioUpdate={this.onRadioUpdate}
+                  />
+                </div>
+              );
+            }
+          } else {
+            return (
+              <div>
+                <div
+                  className="col-md-12 row"
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    backgroundColor: "lightgray"
+                  }}
+                >
+                  {innerArray.question}
+                </div>
+                <TextAreaQuestionList
+                  label={innerArray.question}
+                  value={innerArray.options}
+                  questionid={innerArray._id}
+                />
+              </div>
+            );
+          }
+        })
+      );
   }
 }
 export default PostQuestions;

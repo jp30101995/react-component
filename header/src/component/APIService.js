@@ -13,8 +13,6 @@ class APIService extends Component {
       isLoaded: false,
       items: []
     };
-
-    
   }
 
   onRadioUpdate = (val, questionid) => {

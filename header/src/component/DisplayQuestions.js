@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import CheckboxQuestionList from "./CheckboxQuestionList";
-import RadioButtonQuestionList from "./RadionButtonQuestionList";
-import TextAreaQuestionList from "./TextAreaQuestionList";
 import { Button } from "reactstrap";
 import  APIService  from "./APIService";
 import { Icon } from "react-fa";
@@ -74,38 +71,9 @@ class DisplayQuestions extends Component {
     }
   };
 
-  componentWillMount() {
-   
-    this.apiURL =
-      "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/";
-    var url = this.apiURL + "questions/20/Maths/easy/123123";
-   
-    fetch(url)
-      .then(res => res.json())
-      .then(
-        result => {
-          
-          this.setState({
-            isLoaded: true,
-            items: result
-          });
-         
-        },
-       
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
-  }
-
   render() {
     if(this.state.isSubmit)
       return <PostQuestions quearr={this.state.quearr}/>
-
-
     return (
       <form onSubmit={this.handleSubmit}>
         <APIService onCheckBoxUpdate={this.onCheckBoxUpdate} onRadioUpdate={this.onRadioUpdate} />

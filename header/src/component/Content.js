@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CheckboxQuestionList from "./CheckboxQuestionList";
 import RadioButtonQuestionList from "./RadionButtonQuestionList";
 import TextAreaQuestionList from "./TextAreaQuestionList";
-
 export class Content extends Component {
   constructor(props) {
     super(props);
@@ -107,7 +106,6 @@ export class Content extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        //this.newArr =
         items.map(innerArray => {
           if (innerArray.questiontype == "chkbox") {
             return (
