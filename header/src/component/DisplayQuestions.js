@@ -88,7 +88,7 @@ class DisplayQuestions extends Component {
       <form onSubmit={this.handleSubmit}>
         <APIService onCheckBoxUpdate={this.onCheckBoxUpdate} onRadioUpdate={this.onRadioUpdate} data={this.data} />
         <div className="col-md-4">
-          <Button color="success" type="submit" onClick={this.handleSubmit}>
+          <Button color="advanced" type="submit" onClick={this.handleSubmit}>
             Register
           </Button>
         </div>

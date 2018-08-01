@@ -13,7 +13,7 @@ export  class SubmitButton extends Component {
     render(){ 
       return(
           <div className="col-md-4">
-           <Button color="success" type="submit" onClick={this.handleSubmit}>Register</Button>
+           <Button color="advanced" type="submit" onClick={this.handleSubmit}>Register</Button>
          </div>
          )}
 }

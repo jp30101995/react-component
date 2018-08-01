@@ -153,7 +153,7 @@ class CreateQuestions extends Component {
                 <div className="col-md-4">
                   <ButtonGroup>
                     <Button
-                      color="primary"
+                      color="default"
                       onClick={this.handleDifficultyChange}
                       active={this.state.difficulty === "Easy"}
                       style={[this.state.difficulty === "Easy" ? "" : ""]}
@@ -161,14 +161,14 @@ class CreateQuestions extends Component {
                       Easy
                     </Button>
                     <Button
-                      color="primary"
+                      color="default"
                       onClick={this.handleDifficultyChange}
                       active={this.state.difficulty === "Medium"}
                     >
                       Medium
                     </Button>
                     <Button
-                      color="primary"
+                      color="default"
                       onClick={this.handleDifficultyChange}
                       active={this.state.difficulty === "Hard"}
                     >
@@ -202,13 +202,13 @@ class CreateQuestions extends Component {
               <div className="form-group">
                 <div className="col-md-2" />
                 <div className="col-md-4">
-                  <Button color="success" type="submit">
+                   <Button color="advanced" type="submit">
                     Register
-                  </Button>
+                  </Button> 
                 </div>
                 <div className="col-md-4">
                   <Button
-                    color="success"
+                    color="advanced"
                     type="button"
                     onClick={this.handleReportClick}
                   >
