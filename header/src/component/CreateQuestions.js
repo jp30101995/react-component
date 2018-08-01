@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DisplayQuestions from "./DisplayQuestions";
 import { Button, ButtonGroup } from "reactstrap";
 import Report  from "./Report";
+import ReactSpeedometer from "react-d3-speedometer";
 class CreateQuestions extends Component {
   constructor(props) {
     super(props);
@@ -60,8 +61,7 @@ class CreateQuestions extends Component {
       if (this.state.isReport) {
         return (
           <div>
-           
-            <Report></ Report>
+            <Report/>
           </div>
         );
       } else {
@@ -99,6 +99,7 @@ class CreateQuestions extends Component {
                     onChange={this.handleLearnerIDChange}
                     placeholder="Learner ID"
                   />
+                 
                 </div>
               </div>
             </div>
