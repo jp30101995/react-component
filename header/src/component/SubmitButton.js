@@ -7,7 +7,7 @@ export  class SubmitButton extends Component {
 //     this.handleSubmit = this.handleSubmit.bind(this);
 // }
 //   handleSubmit(event) {
-//     debugger;
+//     
 //     this.props.handleSubmit();
 //  }
     render(){ 

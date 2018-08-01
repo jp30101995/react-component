@@ -20,10 +20,11 @@ class TextAreaQuestionList extends Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-    
         this.setState({
           checkedRadioName: value
         });
+
+        this.props.onTextAreaUpdate(target.value,this.questionid);
       }
 
 

@@ -3,9 +3,8 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 class RadionButtonQuestionList extends Component {
     constructor(props) {
         super(props);
-        this.state = {isGoing: true};
+        this.state = {selectedAnswer:props.selectedAnswer,checkedRadioName:''};
         this.questionid=props.questionid
-        this.state.checkedRadioName = '';
         this.items = props.value;
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -19,15 +18,41 @@ class RadionButtonQuestionList extends Component {
         this.props.onRadioUpdate(target.value,this.questionid);
       }
     render() {
-        return (
-        this.items.map((user, idx) => (
-            <FormGroup check>
-            <Label check>
-              <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.checkedRadioName === user} />{' '}
-                {user}
-            </Label>
-          </FormGroup>
-          )));
+
+        return this.items.map((user, idx) => {
+            if (this.state.selectedAnswer == "") {
+              return (
+                <FormGroup check>
+                    <Label check>
+                        <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.checkedRadioName === user} />{' '}
+                        {user}
+                    </Label>
+                </FormGroup>
+              );
+            } else {
+              {
+                return (
+                    <FormGroup check>
+                    <Label check>
+                      <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
+                      {user}
+                    </Label>
+                  </FormGroup>
+                );
+              }
+            }
+          });
+
+
+        // return (
+        // this.items.map((user, idx) => (
+        //     <FormGroup check>
+        //     <Label check>
+        //       <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.checkedRadioName === user} />{' '}
+        //         {user}
+        //     </Label>
+        //   </FormGroup>
+        //   )));
     }
 }
 export default RadionButtonQuestionList;

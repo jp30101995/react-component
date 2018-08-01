@@ -13,7 +13,10 @@ class DisplayQuestions extends Component {
       quearr: [],
       isSubmit:false
     };
+
+    this.data=props.data;
    
+    
     this.onRadioUpdate = this.onRadioUpdate.bind(this);
     this.onCheckBoxUpdate = this.onCheckBoxUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +24,7 @@ class DisplayQuestions extends Component {
   }
 
   handleSubmit(event) {
-    debugger;
+    
     this.setState({isSubmit: true});
     event.preventDefault();
   
@@ -34,7 +37,13 @@ class DisplayQuestions extends Component {
     });
     var arr = [];
     arr.push(val);
+    
     this.state.quearr.push({ answer: arr, questionid: questionid });
+  };
+
+  onTextAreaUpdate = (val, questionid) => {
+    
+    this.state.quearr.push({ answer: val, questionid: questionid });
   };
 
   onCheckBoxUpdate = (val, questionid, isChecked) => {
@@ -61,6 +70,7 @@ class DisplayQuestions extends Component {
     });
 
     if (!isDone && !isQuestionFound) {
+      
       this.state.quearr.push({ answer: arr, questionid: questionid });
     } else if (tempArr.length > 0) {
       this.state.quearr.map(statevalue => {
@@ -76,7 +86,7 @@ class DisplayQuestions extends Component {
       return <PostQuestions quearr={this.state.quearr}/>
     return (
       <form onSubmit={this.handleSubmit}>
-        <APIService onCheckBoxUpdate={this.onCheckBoxUpdate} onRadioUpdate={this.onRadioUpdate} />
+        <APIService onCheckBoxUpdate={this.onCheckBoxUpdate} onRadioUpdate={this.onRadioUpdate} data={this.data} />
         <div className="col-md-4">
           <Button color="success" type="submit" onClick={this.handleSubmit}>
             Register

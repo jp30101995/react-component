@@ -9,7 +9,7 @@ class CreateQuestions extends Component {
     this.state = {
       learnerID: "",
       testid: "",
-      subject: "Web Development",
+      subject: "Maths",
       difficulty: "Easy",
       noOfQuestions: "",
       redirectToNewPage: false,
@@ -66,15 +66,16 @@ class CreateQuestions extends Component {
         );
       } else {
         return (
-          <DisplayQuestions data="[{&quot;_id&quot;: &quot;5b4db0271247023544f06377&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;chkbox&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0},{&quot;_id&quot;: &quot;5b4db0271247023544f06378&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;,&quot;option3&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;radio&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0}]" />
+          // data="[{&quot;_id&quot;: &quot;5b4db0271247023544f06377&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;chkbox&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0},{&quot;_id&quot;: &quot;5b4db0271247023544f06378&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;,&quot;option3&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;radio&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0}]" 
+          <DisplayQuestions data={this.state} />
         );
       }
     }
     var subjects = [
-      { name: "Web Development", id: 1 },
-      { name: "Design", id: 2 },
-      { name: "Integration", id: 3 },
-      { name: "Training", id: 4 }
+      { name: "Maths", id: 1 },
+      { name: "Science", id: 2 },
+      { name: "English", id: 3 },
+      { name: "Social Studies", id: 4 }
     ];
 
     let subjectsItems = subjects.map(subject => (
@@ -104,7 +105,7 @@ class CreateQuestions extends Component {
               </div>
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <div className="row">
                 <div className="col-md-2">
                   <label htmlFor="test" className="col-xs-offset-1">
@@ -121,7 +122,7 @@ class CreateQuestions extends Component {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="form-group row">
               <div className="row">

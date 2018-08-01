@@ -7,6 +7,8 @@ class CheckboxQuestionList extends Component {
         
         super(props);
         this.questionid=props.questionid
+        
+        this.state = {selectedAnswer:props.selectedAnswer};
 
         this.items = props.value;
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -20,15 +22,39 @@ class CheckboxQuestionList extends Component {
 
 
     render() {
-        return (
-        this.items.map((user, idx) => (
-            <FormGroup check>
-            <Label check>
-              <Input type="checkbox" value={user} onChange={this.handleInputChange} />{' '}
-              {user}
-            </Label>
-          </FormGroup>
-          )));
+        return this.items.map((user, idx) => {
+            if (this.state.selectedAnswer == "") {
+              return (
+                <FormGroup check>
+                    <Label check>
+                        <Input type="checkbox" value={user} onChange={this.handleInputChange} />{' '}
+                        {user}
+                    </Label>
+                </FormGroup>
+              );
+            } else {
+              {
+                return (
+                    <FormGroup check>
+                    <Label check>
+                      <Input type="checkbox" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
+                      {user}
+                    </Label>
+                  </FormGroup>
+                );
+              }
+            }
+          });
+
+        // return (
+        // this.items.map((user, idx) => (
+        //     <FormGroup check>
+        //     <Label check>
+        //       <Input type="checkbox" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer[idx] === user} />{' '}
+        //       {user}
+        //     </Label>
+        //   </FormGroup>
+        //   )));
     }
 
 }

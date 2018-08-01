@@ -61,14 +61,25 @@ class PostQuestions extends Component {
                     backgroundColor: "lightgray"
                   }}
                 >
-                  {innerArray.question}
+                  {innerArray.questionDesc}
                 </div>
                 <CheckboxQuestionList
-                  label={innerArray.question}
+                  question={innerArray.questionDesc}
                   value={innerArray.options}
-                  questionid={innerArray._id}
-                  onCheckBoxUpdate={this.onCheckBoxUpdate}
+                  questionid={innerArray.question}
+                  selectedAnswer={innerArray.answer}
                 />
+
+                <div>
+                  <label>
+                        Correct Answer: <span style={{color: "green"}}>{innerArray.rightAns}</span>
+                  </label>
+                </div>
+                <div>
+                  <label>
+                        Total Marks: <span style={{color: "blue"}}>{innerArray.totMarks}</span>
+                  </label>
+                </div>
               </div>
             );
           } else if (innerArray.questiontype == "radio") {
@@ -83,14 +94,26 @@ class PostQuestions extends Component {
                       backgroundColor: "lightgray"
                     }}
                   >
-                    {innerArray.question}
+                    {innerArray.questionDesc}
                   </div>
                   <RadioButtonQuestionList
-                    label={innerArray.question}
+                    question={innerArray.questionDesc}
                     value={innerArray.options}
-                    questionid={innerArray._id}
-                    onRadioUpdate={this.onRadioUpdate}
+                    questionid={innerArray.question}
+                    selectedAnswer={innerArray.answer}
                   />
+
+                  <div>
+                  <label htmlFor="test" className="col-xs-offset-1">
+                        Correct Answer: {innerArray.rightanswer}
+                  </label>
+                </div>
+                <div>
+                  <label>
+                        Total Marks: <span style={{color: "blue"}}>{innerArray.totMarks}</span>
+                  </label>
+                </div>
+
                 </div>
               );
             }
@@ -105,13 +128,25 @@ class PostQuestions extends Component {
                     backgroundColor: "lightgray"
                   }}
                 >
-                  {innerArray.question}
+                  {innerArray.questionDesc}
                 </div>
                 <TextAreaQuestionList
-                  label={innerArray.question}
+                  question={innerArray.questionDesc}
                   value={innerArray.options}
-                  questionid={innerArray._id}
+                  questionid={innerArray.question }
+                  selectedAnswer={innerArray.answer}
                 />
+
+                <div>
+                  <label htmlFor="test" className="col-xs-offset-1">
+                        Correct Answer: {innerArray.rightanswer}
+                  </label>
+                </div>
+                <div>
+                  <label>
+                        Total Marks: <span style={{color: "blue"}}>{innerArray.totMarks}</span>
+                  </label>
+                </div>
               </div>
             );
           }
