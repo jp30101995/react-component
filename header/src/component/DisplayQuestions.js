@@ -35,7 +35,7 @@ class DisplayQuestions extends Component {
   onRadioUpdate = (val, questionid) => {
     this.state.quearr.map((statevalue, idx) => {
       if (statevalue.questionid === questionid) {
-        this.state.splice(idx, 1);
+        this.state.quearr.splice(idx, 1);
       }
     });
     var arr = [];

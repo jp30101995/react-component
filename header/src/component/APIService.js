@@ -72,9 +72,6 @@ class APIService extends Component {
             >
               {innerArray.question}
             </div>
-            <div className="col-md-2">
-              <i className="fa fa-camera-retro" />
-            </div>
             <div className="col-md-12">
               <CheckboxQuestionList
                 question={innerArray.question}
@@ -99,7 +96,6 @@ class APIService extends Component {
               >
                 {innerArray.question}
               </div>
-              <div className="col-md-2">2</div>
               <div className="col-md-12">
                 <RadioButtonQuestionList
                   question={innerArray.question}
