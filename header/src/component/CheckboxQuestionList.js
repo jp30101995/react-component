@@ -25,8 +25,8 @@ class CheckboxQuestionList extends Component {
         return this.items.map((user, idx) => {
             if (this.state.selectedAnswer === "") {
               return (
-                <FormGroup check style={{fontWeight:"normal"}}>
-                    <Label check>
+                <FormGroup check>
+                    <Label check style={{fontWeight:"normal"}}>
                         <Input type="checkbox" value={user} onChange={this.handleInputChange} />{' '}
                         {user}
                     </Label>
@@ -55,8 +55,8 @@ class CheckboxQuestionList extends Component {
             }
             else {
                 return (
-                    <FormGroup check style={{fontWeight:"normal"}}>
-                    <Label check>
+                   <FormGroup check>
+                    <Label check style={{fontWeight:"normal"}}>
                     <Input type="checkbox" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
                       {user}
                     </Label>
