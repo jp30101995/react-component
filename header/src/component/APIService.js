@@ -27,6 +27,10 @@ class APIService extends Component {
     this.props.onCheckBoxUpdate(val, questionid, isChecked);
   };
 
+  getQuestionsLength = (val) =>{
+    this.props.getQuestionsLength(val);
+  };
+
   componentWillMount() {
     var url = "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/questions/"+ this.data.noOfQuestions + "/"+ this.data.subject + "/"+ this.data.difficulty.toString().toLowerCase() +"/" + this.data.learnerID;
     
@@ -38,6 +42,7 @@ class APIService extends Component {
             isLoaded: true,
             items: result
           });
+          this.getQuestionsLength(this.state.items.length);
         },
         error => {
           this.setState({
@@ -56,9 +61,9 @@ class APIService extends Component {
     } else if (!isLoaded) {
       return <div><Loader /></div>;
     } else {
-      var arr = this.state.items;
-      
-     return arr.map((innerArray, i) => {
+    var arr = this.state.items;
+
+    return arr.map((innerArray, i) => {
       if (innerArray.questiontype === "chkbox") {
         return (
           <div className="row">

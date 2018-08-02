@@ -14,7 +14,9 @@ class DisplayQuestions extends Component {
       isLoaded: false,
       items: [],
       quearr: [],
-      isSubmit:false
+      isSubmit:false,
+      totalQuestions:0,
+      finalResult:0
     };
 
     this.data=props.data;
@@ -24,6 +26,7 @@ class DisplayQuestions extends Component {
     this.onCheckBoxUpdate = this.onCheckBoxUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReportClick = this.handleReportClick.bind(this);
+    this.getQuestionsLength = this.getQuestionsLength.bind(this);
    
   }
 
@@ -56,6 +59,18 @@ class DisplayQuestions extends Component {
       isReport: true
     });
     event.preventDefault();
+  }
+
+  getQuestionsLength = (val) =>{
+    this.setState({
+      totalQuestions: val
+    });
+  }
+
+  getFinalResult = (val,arrlen) =>{
+    this.setState({
+      finalResult: val + '/' + arrlen
+    });
   }
 
   onCheckBoxUpdate = (val, questionid, isChecked) => {
@@ -111,8 +126,9 @@ class DisplayQuestions extends Component {
     }
     else if(this.state.isSubmit)
       return (
-        <form onSubmit={this.handleSubmit}>
-      <PostQuestions quearr={this.state.quearr}/>
+      <form onSubmit={this.handleSubmit}>
+      <h3 style={{color:"blue"}}>Final Result: {this.state.finalResult}</h3>
+      <PostQuestions quearr={this.state.quearr} getFinalResult={this.getFinalResult}/>
       <div className="col-md-4">
       <Button
         color="advanced"
@@ -126,9 +142,11 @@ class DisplayQuestions extends Component {
       )
     return (
       <form onSubmit={this.handleSubmit}>
+      <h3 style={{color:"blue"}}>Total Questions: {this.state.totalQuestions}</h3>
         <APIService
           onCheckBoxUpdate={this.onCheckBoxUpdate}
           onRadioUpdate={this.onRadioUpdate}
+          getQuestionsLength = {this.getQuestionsLength}
           data={this.data}
         />
         <div className="col-md-4">
