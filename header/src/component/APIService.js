@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CheckboxQuestionList from "./CheckboxQuestionList";
 import RadioButtonQuestionList from "./RadionButtonQuestionList";
 import TextAreaQuestionList from "./TextAreaQuestionList";
+import Loader from "./Loader";
 
 class APIService extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class APIService extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div><Loader /></div>;
     } else {
       var arr = this.state.items;
       

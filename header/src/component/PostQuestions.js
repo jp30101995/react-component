@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CheckboxQuestionList from "./CheckboxQuestionList";
 import RadioButtonQuestionList from "./RadionButtonQuestionList";
 import TextAreaQuestionList from "./TextAreaQuestionList";
+import Loader from "./Loader";
+
 class PostQuestions extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ class PostQuestions extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div><Loader /></div>;
     } else {
     return (
         this.state.items.map(innerArray => {
