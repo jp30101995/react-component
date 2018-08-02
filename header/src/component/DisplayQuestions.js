@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import  APIService  from "./APIService";
+import APIService from "./APIService";
 import PostQuestions from "./PostQuestions";
-import Report  from "./Report";
+import Report from "./Report";
+import LineChartReport from "./LineChartReport";
 //import ReactSpeedometer from "react-d3-speedometer";
 
 class DisplayQuestions extends Component {
@@ -95,8 +96,16 @@ class DisplayQuestions extends Component {
   render() {
     if (this.state.redirectToNewPage === true) {
       return (
-        <div>
-          <Report/>
+       
+        <div className="row">
+          <div className="col-md-12">
+            <div className="col-md-6">
+              <Report />
+            </div>
+            <div className="col-md-6">
+              <LineChartReport />
+            </div>
+          </div>
         </div>
       );
     }
@@ -117,7 +126,11 @@ class DisplayQuestions extends Component {
       )
     return (
       <form onSubmit={this.handleSubmit}>
-        <APIService onCheckBoxUpdate={this.onCheckBoxUpdate} onRadioUpdate={this.onRadioUpdate} data={this.data} />
+        <APIService
+          onCheckBoxUpdate={this.onCheckBoxUpdate}
+          onRadioUpdate={this.onRadioUpdate}
+          data={this.data}
+        />
         <div className="col-md-4">
           <Button color="advanced" type="submit" onClick={this.handleSubmit}>
             Submit Answers

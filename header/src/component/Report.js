@@ -7,10 +7,13 @@ class Report extends Component {
   render() {
     return (
       <div>
+         <div> <h1>Line Chart</h1> </div>
         <ReactSpeedometer
           value={70}
           needleTransitionDuration={4000}
           minValue={0}
+          width={500}
+          height={400}
           maxValue={100}
           needleTransition="easeElastic"
           currentValueText="Current Value: ${value}"
