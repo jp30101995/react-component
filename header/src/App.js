@@ -7,7 +7,7 @@ class App extends Component {
     <div className="App">
       <header className="container">
          <div className="row">
-           <div className="col-md-12" style={{textAlign:'center',fontSize:'25px',fontWeight:'bold'}}>Team Name</div>
+           <div className="col-md-12" style={{textAlign:'center',fontSize:'25px',fontWeight:'bold'}}>Hack Anatomy</div>
        </div>
        <div className="row">
          <hr/>

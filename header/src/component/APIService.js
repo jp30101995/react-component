@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CheckboxQuestionList from "./CheckboxQuestionList";
 import RadioButtonQuestionList from "./RadionButtonQuestionList";
 import TextAreaQuestionList from "./TextAreaQuestionList";
-import DisplayQuestions from "./DisplayQuestions";
 
 class APIService extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class APIService extends Component {
   };
 
   componentWillMount() {
-    var url = "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/" + "questions/"+ this.data.noOfQuestions + "/"+ this.data.subject + "/"+ this.data.difficulty.toString().toLowerCase() +"/" + this.data.learnerID;
+    var url = "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/questions/"+ this.data.noOfQuestions + "/"+ this.data.subject + "/"+ this.data.difficulty.toString().toLowerCase() +"/" + this.data.learnerID;
     
     fetch(url)
       .then(res => res.json())
@@ -50,7 +49,7 @@ class APIService extends Component {
   
   render() {
     
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -59,7 +58,7 @@ class APIService extends Component {
       var arr = this.state.items;
       
      return arr.map((innerArray, i) => {
-      if (innerArray.questiontype == "chkbox") {
+      if (innerArray.questiontype === "chkbox") {
         return (
           <div className="row">
             <div
@@ -86,8 +85,7 @@ class APIService extends Component {
             </div>
           </div>
         );
-      } else if (innerArray.questiontype == "radio") {
-        {
+      } else if (innerArray.questiontype === "radio") {
           return (
             <div className="row">
               <div
@@ -112,7 +110,6 @@ class APIService extends Component {
               </div>
             </div>
           );
-        }
       } else {
         return (
           <div>

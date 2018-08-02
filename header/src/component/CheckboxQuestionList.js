@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 
 class CheckboxQuestionList extends Component {
     
@@ -23,7 +23,7 @@ class CheckboxQuestionList extends Component {
 
     render() {
         return this.items.map((user, idx) => {
-            if (this.state.selectedAnswer == "") {
+            if (this.state.selectedAnswer === "") {
               return (
                 <FormGroup check>
                     <Label check>
@@ -33,7 +33,6 @@ class CheckboxQuestionList extends Component {
                 </FormGroup>
               );
             } else {
-              {
                 return (
                     <FormGroup check>
                     <Label check>
@@ -42,7 +41,6 @@ class CheckboxQuestionList extends Component {
                     </Label>
                   </FormGroup>
                 );
-              }
             }
           });
 

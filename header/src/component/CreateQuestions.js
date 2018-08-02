@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import DisplayQuestions from "./DisplayQuestions";
 import { Button, ButtonGroup } from "reactstrap";
-import Report  from "./Report";
-import ReactSpeedometer from "react-d3-speedometer";
 class CreateQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      learnerID: "",
+      learnerID: "123123",
       testid: "",
       subject: "Maths",
       difficulty: "Easy",
-      noOfQuestions: "",
+      noOfQuestions: "20",
       redirectToNewPage: false,
       backgroundColor: "#007bff",
       isReport: false
@@ -24,7 +22,6 @@ class CreateQuestions extends Component {
     this.handleNoOfQuestionsChange = this.handleNoOfQuestionsChange.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReportClick = this.handleReportClick.bind(this);
   }
   handleLearnerIDChange(event) {
     this.setState({ learnerID: event.target.value });
@@ -57,19 +54,10 @@ class CreateQuestions extends Component {
 
   render() {
     if (this.state.redirectToNewPage === true) {
-      debugger;
-      if (this.state.isReport) {
-        return (
-          <div>
-            <Report/>
-          </div>
-        );
-      } else {
         return (
           // data="[{&quot;_id&quot;: &quot;5b4db0271247023544f06377&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;chkbox&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0},{&quot;_id&quot;: &quot;5b4db0271247023544f06378&quot;,&quot;options&quot;: [&quot;option1&quot;,&quot;option2&quot;,&quot;option3&quot;],&quot;question&quot;: &quot;question1&quot;,&quot;type&quot;: &quot;radio&quot;,&quot;difficulty&quot;: 1,&quot;subject&quot;: &quot;Maths&quot;,&quot;__v&quot;: 0}]" 
           <DisplayQuestions data={this.state} />
         );
-      }
     }
     var subjects = [
       { name: "Maths", id: 1 },
@@ -203,17 +191,8 @@ class CreateQuestions extends Component {
                 <div className="col-md-2" />
                 <div className="col-md-4">
                    <Button color="advanced" type="submit">
-                    Register
+                    Start Exam
                   </Button> 
-                </div>
-                <div className="col-md-4">
-                  <Button
-                    color="advanced"
-                    type="button"
-                    onClick={this.handleReportClick}
-                  >
-                    Report
-                  </Button>
                 </div>
               </div>
             </div>

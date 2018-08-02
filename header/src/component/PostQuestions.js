@@ -48,7 +48,7 @@ class PostQuestions extends Component {
       );
   }
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -56,7 +56,7 @@ class PostQuestions extends Component {
     } else {
     return (
         this.state.items.map(innerArray => {
-          if (innerArray.questiontype == "chkbox") {
+          if (innerArray.questiontype === "chkbox") {
             return (
               <div>
                 <div
@@ -88,8 +88,8 @@ class PostQuestions extends Component {
                 </div>
               </div>
             );
-          } else if (innerArray.questiontype == "radio") {
-            {
+          } else if (innerArray.questiontype === "radio") {
+            
               return (
                 <div>
                   <div
@@ -122,7 +122,6 @@ class PostQuestions extends Component {
 
                 </div>
               );
-            }
           } else {
             return (
               <div>
