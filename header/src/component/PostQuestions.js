@@ -58,6 +58,7 @@ class PostQuestions extends Component {
     } else {
     return (
         this.state.items.map(innerArray => {
+          var a = ["apples", "bananas", "oranges"]
           if (innerArray.questiontype === "chkbox") {
             return (
               <div>
@@ -80,7 +81,7 @@ class PostQuestions extends Component {
 
                 <div>
                   <label>
-                        Correct Answer: <span style={{color: "green"}}>{innerArray.rightAns}</span>
+                        Correct Answer: <span style={{color: "green"}}>{innerArray.rightAns.join(",")}</span>
                   </label>
                 </div>
                 <div>
@@ -112,8 +113,8 @@ class PostQuestions extends Component {
                   />
 
                   <div>
-                  <label htmlFor="test" className="col-xs-offset-1">
-                        Correct Answer: {innerArray.rightanswer}
+                  <label>
+                      Correct Answer: <span style={{color: "green"}}>{innerArray.rightAns.join(",")}</span>
                   </label>
                 </div>
                 <div>
@@ -145,8 +146,8 @@ class PostQuestions extends Component {
                 />
 
                 <div>
-                  <label htmlFor="test" className="col-xs-offset-1">
-                        Correct Answer: {innerArray.rightanswer}
+                  <label>
+                      Correct Answer: <span style={{color: "green"}}>{innerArray.rightAns.join(",")}</span>
                   </label>
                 </div>
                 <div>

@@ -109,9 +109,9 @@ class APIService extends Component {
           );
       } else {
         return (
-          <div>
+          <div className="row">
             <div
-              className="col-md-12"
+              className="col-md-10"
               style={{
                 fontSize: "20px",
                 fontWeight: "bold",
