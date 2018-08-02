@@ -44,15 +44,7 @@ class CheckboxQuestionList extends Component {
             }
           });
 
-        // return (
-        // this.items.map((user, idx) => (
-        //     <FormGroup check>
-        //     <Label check>
-        //       <Input type="checkbox" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer[idx] === user} />{' '}
-        //       {user}
-        //     </Label>
-        //   </FormGroup>
-        //   )));
+     
     }
 
 }
