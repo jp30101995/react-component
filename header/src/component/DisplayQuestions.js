@@ -69,7 +69,7 @@ class DisplayQuestions extends Component {
 
   getFinalResult = (val,arrlen) =>{
     this.setState({
-      finalResult: val + '/' + arrlen
+      finalResult: val + '/' + this.state.totalQuestions
     });
   }
 

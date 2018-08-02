@@ -32,7 +32,7 @@ class APIService extends Component {
   };
 
   componentWillMount() {
-    var url = "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/questions/"+ this.data.noOfQuestions + "/"+ this.data.subject + "/"+ this.data.difficulty.toString().toLowerCase() +"/" + this.data.learnerID;
+    var url = "https://21wgg447m7.execute-api.ap-southeast-1.amazonaws.com/dev/questions/"+ this.data.noOfQuestions + "/"+ this.data.subject + "/"+ this.data.difficulty +"/" + this.data.learnerID;
     
     fetch(url)
       .then(res => res.json())

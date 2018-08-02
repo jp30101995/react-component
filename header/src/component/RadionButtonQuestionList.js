@@ -32,32 +32,32 @@ class RadionButtonQuestionList extends Component {
             } 
             else if(this.state.totalMarks === 1 && this.state.selectedAnswer.includes(user)){
                 return (
-                    <FormGroup check>
+                <FormGroup check>
                     <Label check style={{color:"green"}}>
                       <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
                       {user}
                     </Label>
-                  </FormGroup>
+                </FormGroup>
                 );
             }
             else if(this.state.totalMarks === 0 && this.state.selectedAnswer.includes(user)){
                 return (
-                    <FormGroup check style={{color:"red"}}>
+                <FormGroup check style={{color:"red"}}>
                     <Label check>
                       <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
                       {user}
                     </Label>
-                  </FormGroup>
+                </FormGroup>
                 );
             }
             else {
                 return (
-                    <FormGroup check>
+                <FormGroup check>
                     <Label check style={{fontWeight:"normal"}}>
                       <Input type="radio" value={user} onChange={this.handleInputChange} checked={this.state.selectedAnswer.includes(user)} disabled />{' '}
                       {user}
                     </Label>
-                  </FormGroup>
+                </FormGroup>
                 );
             }
           });
